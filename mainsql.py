@@ -25,7 +25,20 @@ mycursor = mydb.cursor()
 #TO CREATE A TABLE:
 # mycursor.execute("CREATE TABLE students (name VARCHAR(255), age INTEGER(10))")
 
+#To show a table created earlier
 mycursor.execute("SHOW TABLES")
 
 for tb in mycursor:
     print(tb)
+
+sqlFormula = "INSERT INTO students (name, age) VALUES (%s, %s)"
+students = [("Bob", 22),
+            ("Bob", 18),
+            ("Bob", 28),
+            ("Bob", 32),
+            ("Bob", 25)]
+# To execute a single string like ("Bob", 22), we use mycursor.execute
+# But for executing a tuple having arrays, we use mycursor.executemany.
+mycursor.executemany(sqlFormula, students)
+
+mydb.commit()
