@@ -20,3 +20,5 @@
 3. To create a database:
 <mycursor.execute("CREATE DATABASE STUDENTS")>
 
+4. TO CREATE A TABLE in **DATABASE**
+>
